@@ -8,14 +8,17 @@
 }
 
 body {
+    width: 100%;
      /*background-color: #00A287; */
-    background: url(bg.jpg);
+    background: url(assets/images/bg.jpg);
     background-position: center;
-    background-size: contain;
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 .container {
-    height: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -51,6 +54,10 @@ body {
     font-size: 50px;
 }
 
+.spots-available{
+    font-size: 100px;
+}
+
 .container-image {
     margin: 0 auto;
     
@@ -79,6 +86,12 @@ body {
     font-size:55px;
 }
 
+.parking-description{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
 .parking-name{
     font-size: 40px;
 }
@@ -100,11 +113,11 @@ body {
 .section {
     margin-top: 50px;
 	/* background-color: #353333; */
-	z-index: 4;
+	/* z-index: 4; */
     height: 100%;
     width: 100%;
     /* border: 10px solid transparent; */
-    position: absolute;
+    /* position: absolute; */
     
     /* box-shadow: 5px 5px 20px 5px black; */
     /* transform: rotate(-5deg); */
@@ -136,13 +149,14 @@ body {
     background-size: .65em auto, 100%; 
 } 
 .parking-list::-ms-expand { display: none; } 
-.parking-list:hover { border-color: #888; } 
+.parking-list:hover { border-color: rgb(83, 83, 83); } 
 .parking-list:focus { border-color: #aaa; 
      box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
      box-shadow: 0 0 0 3px -moz-mac-focusring; 
     color: #222;
      outline: none; 
  } 
+ 
 option { font-weight:normal; } 
 *[dir="rtl"] .parking-list, :root:lang(ar) .parking-list, :root:lang(iw) .parking-list { 
     background-position: left .7em top 50%, 0 0; 
@@ -191,4 +205,15 @@ a.buttons {
   }
   a.buttons:not(:hover) {
       transition: 0.6s;
+      
+  }
+
+a.buttons:hover{
+    cursor: pointer;
+    background-image: linear-gradient(#6c5df3, #5755c5);
+}
+
+  #img{
+    width: 200%;
+    
   }
