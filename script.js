@@ -1,18 +1,7 @@
-const list = document.querySelector('.parking-list');
-const btn = document.querySelector('.buttons');
-const parking_name = document.querySelector('.parking-name');
-const spots_available = document.querySelector('.spots-available');
-const spots_header = document.querySelector('.spots-header');
-const spots_header_str = "Number of available parking spots:";
+let parkings;
+const container = document.querySelector('.container');
 
-async function getData(){
-    const url = `http://45.83.123.118:6001/Parking/GetDataAboutAvailableSpots/${list.value}`;
-        
-    const response = await fetch(url);
-    const data = await response.json();
-   
-    spots_available.innerText = data.availableSpotsCount;
-} 
+
 
 async function getListOfParking(){
     const url = `http://45.83.123.118:6001/Parking/GetListOfParking`;
@@ -23,22 +12,24 @@ async function getListOfParking(){
         var str = "";
 
         data.forEach(element => {
-            str+=`<option value = "${element.id}">${element.name}</option>`;
+            str+=`<div class="parking" id="${element.id}"><h1 class="name">${element.name}</h1><p class="spot-count">Available spots count: ${element.availableSpotsCount}</p></div>`;
+
         });
 
-        list.innerHTML += str;
-        spots_available.innerText = data[0].availableSpotsCount;
-        spots_header.innerText = spots_header_str;
+        container.innerHTML += str;
+
+        parkings = document.querySelectorAll('.parking');
+        for (var i = 0; i < parkings.length; i++) {
+            parkings[i].addEventListener('click', nextPage, false);
+            parkings[i].myParam = i;
+        }
     }catch{
-         spots_available.innerText = "Some Problems :(";
+
     }
 } 
 
-function nextPage(){
-    document.location = "parkingPage.html?id=" + list.value;
+function nextPage(index){
+    document.location = "parkingPage.html?id=" + parkings[index.currentTarget.myParam].id;
 }
 
 getListOfParking();
-
-list.addEventListener('change', getData);
-btn.addEventListener('onclick', nextPage)

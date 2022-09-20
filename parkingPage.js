@@ -1,8 +1,6 @@
-const central_section = document.querySelector('.central-section');
-const spots_available = document.querySelector('.spots-available');
-const spots_header = document.querySelector('.spots-header');
-const parking_name = document.querySelector('.parking-name');
-const spots_header_str = "Number of available parking spots:";
+const spots_available = document.querySelector('.spot-count');
+const parking_name = document.querySelector('.name');
+const img = document.querySelector('.img');
 
 
 async function getData(id){
@@ -12,15 +10,12 @@ async function getData(id){
         const response = await fetch(url);
         const data = await response.json();
 
-        //var value = window.atob(data.image);
+        
+        img.setAttribute('src', "data:image/png;base64," + data.image);
 
-        document.getElementById('img').setAttribute('src', "data:image/png;base64," + data.image);
-
-        spots_available.innerText = data.availableSpotsCount;
-        spots_header.innerText = spots_header_str;
+        spots_available.innerText = "Available spots count: " + data.availableSpotsCount;
         parking_name.innerText = data.parkingName;
     }catch{
-        parking_name.innerText = "Some Problems :(";
     } 
     
 } 
