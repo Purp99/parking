@@ -2,14 +2,15 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #ebebeb;
+    /* color: #ebebeb; */
+    color: #050029;
     font-family: sans-serif;
 }
 
 body {
     width: 100%;
     margin-top: 10px;
-    background-color: #e2e4ff;
+    background-color: #DFDBFF;
 
     overflow-x: hidden;
 
@@ -25,7 +26,7 @@ body {
 }
 
 .parking{
-    background-color: grey;
+    background-color: #A599FF;
     border-radius: 30px;
     border: solid black 3px;
     width: 99%;

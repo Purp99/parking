@@ -2,15 +2,16 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #ebebeb;
+    /* color: #ebebeb; */
+    color: #050029;
     font-family: sans-serif;
 }
 
 body {
     width: 100%;
     margin-top: 200px;
-    background-color: #585858;
-
+    background-color: #DFDBFF;
+    /* background-color: #A599FF; */
     overflow-x: hidden;
 
 }
